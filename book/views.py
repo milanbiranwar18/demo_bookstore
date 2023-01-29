@@ -43,7 +43,7 @@ class Books(APIView):
         try:
             book_list = Book.objects.all()
             serializer = BookSerializer(book_list, many=True)
-            return Response(serializer.data, status=200)
+            return Response({"Message":"All books are", 'data':serializer.data}, status=200)
         except Exception as e:
             logging.error(e)
             return Response({"message": str(e)}, status=400)

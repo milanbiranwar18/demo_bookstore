@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'user',
     'book',
     'cart',
+    'kwikapi_app',
 ]
 
 MIDDLEWARE = [
