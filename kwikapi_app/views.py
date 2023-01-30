@@ -5,14 +5,15 @@ from django.http import HttpResponse
 from kwikapi import API
 from book.models import Book
 from book.serialization import BookSerializer
-
+import json
 
 
 class Books():
 
-    def get(self, request:str) -> str:
-        book_list = Book.objects.filter(author=request)
+    def get(self, title:str, author:str) -> list:
+        book_list = Book.objects.filter(title=title, author=author)
         serializer = BookSerializer(book_list, many=True)
+        print(type(serializer.data))
         return serializer.data
    
 
